@@ -32,6 +32,19 @@ spring:
           #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
           pool-prepared-statements: false
           max-pool-prepared-statement-per-connection-size: 20
+    freemarker:
+      cache: false
+      request-context-attribute: request
+      charset: UTF-8
+      suffix: .ftl
+      content-type: text/html;application/x-www-form-urlencoded;charset=UTF-8
+      template-loader-path: classpath:/templates
+
+    mvc:
+      static-path-pattern: /static/**
+
+    activemq:
+      broker-url:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -47,3 +60,7 @@ pagehelper:
     params: count=countSql
     returnPageInfo: check
 
+# 静态资源对外暴露的访问路径
+file:
+  staticAccessPath: /imgs/**
+  uploadFolder: /web/images
